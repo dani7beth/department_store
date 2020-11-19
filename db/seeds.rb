@@ -10,17 +10,17 @@ require 'faker'
 Item.destroy_all
 
 #for games department add some random games
-5.times do
-    Department.find(1).items.create(name: Faker::Game.title, price: rand(11.30...59.99).round(2))
+20.times do
+    Department.find(1).items.create(name: Faker::Game.title, price: Faker::Commerce.price(range: 10.0..59.0, as_string: true))
 end
 
 #for Comic Books department add some random comics
-5.times do
-    Department.find(2).items.create(name: Faker::DcComics.title, price: rand(5.00...100.99).round(2))
+10.times do
+    Department.find(2).items.create(name: Faker::DcComics.title, price: Faker::Commerce.price(range: 5.0..100.0, as_string: true))
 end
 
 #for snacks department add some random snacks
 5.times do
-    Department.find(3).items.create(name: Faker::Food.fruits, price: rand(1.00...6.99).round(2))
+    Department.find(3).items.create(name: Faker::Food.fruits, price: Faker::Commerce.price(range: 0..10.0, as_string: true))
 end
 

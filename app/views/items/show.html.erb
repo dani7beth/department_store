@@ -1,5 +1,14 @@
 <h1><%= @department.name %> - <%= @item.name %></h1>
 <p>Price: $<%= @item.price %></p>
+<h2>Comments</h2>
+
+<%#for each comment in each item render the comments using the template made in comments view%>
+<% @item.comments.each do |comment| %>
+<%= render 'comments/comment', { comment: comment }%> 
+<% end %>
+
+<hr />
+<%= link_to 'Add Comment', new_item_comment_path(@item) %>
 <%= link_to 'Edit Item', edit_department_item_path([@department, @item]) %>
 <%= link_to 'Delete Item', [@department, @item], method: :delete %>
 <%= link_to 'Back To Items', department_items_path(@department) %>
